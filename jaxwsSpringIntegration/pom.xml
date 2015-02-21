@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>es.steria</groupId>
+	<artifactId>jaxwsSpringIntegration</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>jaxwsSpringIntegration</name>
+	<description>JAX-WS Spring Integration Example</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<source.version>1.6</source.version>
+		<target.version>1.6</target.version>
+		<compiler.version>3.1</compiler.version>
+		<war.version>2.4</war.version>
+		<surefire.version>2.12.2</surefire.version>
+		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>1.0.13</logback.version>
+		<groovy.version>2.1.9</groovy.version>
+		<spring.version>3.2.4.RELEASE</spring.version>
+		<jaxwsSpring.version>1.9</jaxwsSpring.version>
+		<jaxwsSun.verion>2.1.4</jaxwsSun.verion>
+		<jaxapi-version>2.2.11</jaxapi-version>
+	</properties>
+
+	<build>
+		<finalName>jaxwsSpringIntegration</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler.version}</version>
+				<configuration>
+					<source>${source.version}</source>
+					<target>${target.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<source>${source.version}</source>
+					<target>${target.version}</target>
+				</configuration>
+				<version>${war.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+					<source>${source.version}</source>
+					<target>${target.version}</target>
+				</configuration>
+				<version>${surefire.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- ########## SLF4J para LogBack ########## -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<!-- ########## LogBack ########## -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<!-- ########## Groovy ########## -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${groovy.version}</version>
+		</dependency>
+
+		<!-- ########## SPRING ########## -->
+		<!-- Core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Application Context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Web application development utilities -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- ########## JAX-WS Spring ########## -->
+		<dependency>
+			<groupId>org.jvnet.jax-ws-commons.spring</groupId>
+			<artifactId>jaxws-spring</artifactId>
+			<version>${jaxwsSpring.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.sun.xml.ws</groupId>
+		    <artifactId>jaxws-rt</artifactId>
+		    <version>${jaxwsSun.verion}</version>
+		    <exclusions>
+		        <exclusion>
+		            <groupId>com.sun.istack</groupId>
+		            <artifactId>istack-commons-runtime</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
+
+	</dependencies>
+
+</project>
